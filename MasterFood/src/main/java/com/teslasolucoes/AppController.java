@@ -48,8 +48,6 @@ public class AppController {
 		return "users";
 	}
 	
-	
-	
 	@PostMapping("/process_register")
 	public String processRegistration(User user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
