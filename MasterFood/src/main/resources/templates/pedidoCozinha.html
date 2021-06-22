@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab |www.youtube.com/c/CodingLabYT-->
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
+	<link rel="stylesheet" href="style.css">
+	<!-- Boxiocns CDN Link -->
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="sidebar">
+		<div class="logo-details">
+			<i class='bx bx-restaurant'></i>
+			<span class="logo_name">Master Food</span>
+		</div>
+		<ul class="nav-links">
+			<li>
+				<a th:href="@{/}">
+					<i class='bx bx-grid-alt'></i>
+					<span class="link_name">Dashboard</span>
+				</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" th:href="@{/}">Dashboard</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="iocn-link">
+					<a href="#">
+						<i class='bx bx-cart-alt'></i>
+						<span class="link_name">Pedidos</span>
+					</a>
+					<i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Pedidos</a></li>
+					<li><a th:href="@{/pedidoMesa}">Mesa</a></li>
+					<li><a th:href="@{/pedidoDelivery}">Delivery</a></li>
+					<li><a th:href="@{/pedidoCozinha}">Cozinha</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="iocn-link">
+					<a href="#">
+						<i class='bx bx-table'></i>
+						<span class="link_name">Cadastrar</span>
+					</a>
+					<i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Cadastrar</a></li>
+					<li><a href="#">Clientes</a></li>
+					<li><a href="#">Produtos</a></li>
+					<li><a href="#">Garçons</a></li>
+					<li><a href="#">Entregadores</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bx-pie-chart-alt-2'></i>
+					<span class="link_name">Relatórios</span>
+				</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="#">Relatórios</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bx-cog'></i>
+					<span class="link_name">Configurações</span>
+				</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="#">Configurações</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="profile-details">
+					<div class="profile-content">
+						<!--<img src="image/profile.jpg" alt="profile">-->
+					</div>
+					<div class="name-job">
+						<div class="profile_name">Laércio Lima</div>
+						<div class="job">Web Desginer</div>
+					</div>
+					<i class='bx bx-log-out'></i>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+	<section class="home-section">
+		<nav>
+			<div class="home-content">
+				<i class='bx bx-menu'></i>
+				<span class="dashboard">Cozinha - Pedidos na Cozinha</span>
+			</div>
+
+			<div class="profile-details">
+				<!--<img src="images/profile.jpg" alt="">-->
+				<span class="admin_name">Laercio</span>
+				<i class='bx bx-chevron-down'></i>
+			</div>
+		</nav>
+	</section>
+	
+	
+	<script>
+
+		let arrow = document.querySelectorAll(".arrow");
+		for (var i = 0; i < arrow.length; i++) {
+			arrow[i].addEventListener("click", (e) => {
+				let arrowParent = e.target.parentElement.parentElement;
+				arrowParent.classList.toggle("showMenu");
+			});
+		}
+
+		let sidebar = document.querySelector(".sidebar");
+		let sidebarBtn = document.querySelector(".bx-menu");
+		console.log(sidebarBtn);
+		sidebarBtn.addEventListener("click", () => {
+			sidebar.classList.toggle("close");
+		});
+	</script>
+</body>
+
+</html>
